@@ -2,26 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+/*************************common style ********************/
+.btn{
+    @apply bg-black text-white rounded-md hover:bg-gray-800;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+/***********************Nab bar*********************/
+.nav_logo > svg{
+    @apply text-3xl;
 }
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+/********************SignIN********************/
+.input_box{
+    @apply flex flex-col my-5;
+}
+.input_box input[type='email'],input[type='password'],input[type='text']{
+    @apply w-full py-2 px-1 bg-white outline outline-2 outline-gray-500 rounded-md;
+}
+.input_box >label{
+    @apply mb-2 font-semibold;
+}
+.card_middle{
+    @apply flex justify-center items-center gap-2 my-5;
+}
+.card_middle > span{
+    @apply bg-gray-400 h-0.5 w-full block;
 }
