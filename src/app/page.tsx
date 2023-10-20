@@ -40,9 +40,7 @@ export default function Home() {
   return (
     <main className="container mx-auto py-3 px-6">
       <ToastContainer position="top-center"/>
-      <SignUp
-        {...{values,errors,handleChange,handleSubmit,handleBlur,touched,isShow,setIsShow}}
-      />
+      <SignUp {...{values,errors,handleChange,handleSubmit,handleBlur,touched,isShow,setIsShow}}/>
     </main>
   );
 }
