@@ -12,7 +12,7 @@
 }
 /********************SignIN********************/
 .input_box{
-    @apply flex flex-col my-5;
+    @apply flex flex-col;
 }
 .input_box input[type='email'],input[type='password'],input[type='text']{
     @apply w-full py-2 px-1 bg-white outline outline-2 outline-gray-500 rounded-md;
