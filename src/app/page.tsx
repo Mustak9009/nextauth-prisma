@@ -2,7 +2,7 @@
 import React from "react";
 import { SignUp } from "@/components";
 import { useFormik } from "formik";
-import { EyeState } from "@/components/Signup";
+import { EyeState } from "@/components/Signin";
 import * as Yup from "yup";
 import { signIn } from "next-auth/react";
 import { ToastContainer, toast } from "react-toastify";

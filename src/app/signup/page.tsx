@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { SignIn } from "@/components";
 import { useFormik } from "formik";
-import {EyeState} from '@/components/Signup';
+import {EyeState} from '@/components/Signin';
 import * as Yup from 'yup';
 import {createNewUser} from '@/helpers';
 import {useRouter} from 'next/navigation';
