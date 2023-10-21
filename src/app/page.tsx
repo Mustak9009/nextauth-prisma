@@ -32,6 +32,7 @@ export default function Home() {
         if (!handleUserSignIn?.ok) {
           toast.error("User not found,please check you login details");
         }else{
+          router.refresh(); //it's needed when u use getServerSession() for reflecting data 
           router.push('/profile');
         }
       },

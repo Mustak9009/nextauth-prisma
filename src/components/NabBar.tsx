@@ -1,8 +1,12 @@
-import React from "react";
+import React  from "react";
 import Link from "next/link";
-export default function NabBar() {
+import { getServerSession} from "next-auth";
+import { authOption } from "@/utils/auth";
+import LogOut from "./LogOut";
+export default async function NabBar() {
+  const session = await getServerSession(authOption);
   return (
-    <nav className="w-full">
+    <nav className="w-full fixed top-0 z-30">
       <div className="container mx-auto py-2 px-3">
         <div className="flex justify-between items-center bg-gray-100 px-4 py-2 rounded-md">
           <div className="nav_logo">
@@ -10,10 +14,14 @@ export default function NabBar() {
               <path d="M224 0c17.7 0 32 14.3 32 32V240H192V32c0-17.7 14.3-32 32-32zm96 160c17.7 0 32 14.3 32 32v64c0 17.7-14.3 32-32 32s-32-14.3-32-32V192c0-17.7 14.3-32 32-32zm64 64c0-17.7 14.3-32 32-32s32 14.3 32 32v64c0 17.7-14.3 32-32 32s-32-14.3-32-32V224zM93.3 51.2L175.9 240H106.1L34.7 76.8C27.6 60.6 35 41.8 51.2 34.7s35.1 .3 42.1 16.5zm27 221.3l-.2-.5h69.9H216c22.1 0 40 17.9 40 40s-17.9 40-40 40H160c-8.8 0-16 7.2-16 16s7.2 16 16 16h56c39.8 0 72-32.2 72-72l0-.6c9.4 5.4 20.3 8.6 32 8.6c13.2 0 25.4-4 35.6-10.8c8.7 24.9 32.5 42.8 60.4 42.8c11.7 0 22.6-3.1 32-8.6V352c0 88.4-71.6 160-160 160H226.3c-42.4 0-83.1-16.9-113.1-46.9l-11.6-11.6C77.5 429.5 64 396.9 64 363V336c0-32.7 24.6-59.7 56.3-63.5z" />
             </svg>
           </div>
-          <div className="nav_btn">
-            <button className="btn px-3 py-1">
-              <Link href={"/signin"}>Sign In</Link>
-            </button>
+          <div className="nav_btn"> 
+            {!session?.user ? (
+              <button className="btn px-3 py-1">
+                <Link href={"/signin"}>Sign In</Link>
+              </button>
+            ) : (
+              <LogOut/>
+            )}
           </div>
         </div>
       </div>
