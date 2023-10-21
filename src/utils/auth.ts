@@ -3,6 +3,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { prisma } from "@/db/prisma";
 import { compare } from "bcryptjs";
+import GoogleProvider from "next-auth/providers/google";
 export const authOption: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
   session: {
@@ -12,6 +13,10 @@ export const authOption: NextAuthOptions = {
     signIn: "/",
   },
   providers: [
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID!,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET!
+    }),
     CredentialsProvider({
       name: "Credentials",
       credentials: {
