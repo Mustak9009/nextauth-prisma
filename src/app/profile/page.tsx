@@ -10,10 +10,6 @@ import {useSession} from 'next-auth/react';
 export default function Profile() {
   // const session = await getSession();
   const {data:session,status} = useSession(); //server session(getServerSession()) is more faster than -> client session (useSession())
-  if(status==='unauthenticated'){
-    window.location.href='/';
-    return;
-  }
   return (
     <div className="flex justify-center items-center min-h-screen flex-col">
       {session && (

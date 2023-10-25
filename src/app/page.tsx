@@ -7,6 +7,8 @@ import * as Yup from "yup";
 import { signIn } from "next-auth/react";
 import { ToastContainer, toast } from "react-toastify";
 import {useRouter} from 'next/navigation';
+import {useSession} from 'next-auth/react';
+
 import 'react-toastify/dist/ReactToastify.css';
 const initialValues = {
   username: "",
@@ -38,6 +40,10 @@ export default function Home() {
       },
     });
   const [isShow, setIsShow] = React.useState<EyeState>(EyeState.HIDE);
+  const {data:session,status} = useSession(); 
+  if(status=='authenticated'){
+    router.push('/profile');
+  }
   return (
     <main className="container mx-auto py-3 px-6">
       <ToastContainer position="top-center"/>
