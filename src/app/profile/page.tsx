@@ -21,7 +21,7 @@ export default function Profile() {
           <img src={session?.user?.image as string} className="mb-5 rounded-lg" alt="user" width="100" height="100"/>
           <b className="text-xl capitalize">
             hello {" "}
-            <span className="text-emerald-400">{session?.user?.userName}</span>
+            <span className="text-emerald-400">{session?.user?.userName || session.user.name}</span>
           </b>
           <span>Email: {session?.user?.email}</span>
         </>

@@ -2,7 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import type { FormikErrors, FormikTouched } from "formik";
-import {signIn} from 'next-auth/react';
+import { signIn } from "next-auth/react";
 export enum EyeState {
   SHOW = "SHOW",
   HIDE = "HIDE",
@@ -91,7 +91,7 @@ export default function Signup({ values, errors, handleBlur, handleChange, handl
           </div>
           <div className="card_bottom">
             <div className="sign_with_google mb-2">
-              <button type="button"  className="btn w-full py-2 flex justify-center items-center gap-2" >
+              <button type="button"   onClick={()=>signIn('github',{callbackUrl:'http://localhost:3000/profile'})}    className="btn w-full py-2 flex justify-center items-center gap-2" >
                 Sign up with Github
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

@@ -4,6 +4,7 @@ import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { prisma } from "@/db/prisma";
 import { compare } from "bcryptjs";
 import GithubProvider from "next-auth/providers/github";
+
 export const authOption: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
   session: {
@@ -37,7 +38,6 @@ export const authOption: NextAuthOptions = {
         if (!isUserExist) {
           return null;
         }
-    
         if(isUserExist.password){
           const isPasswordMatch = await compare(credentials.password,isUserExist.password);
           if (!isPasswordMatch) {
@@ -74,6 +74,6 @@ export const authOption: NextAuthOptions = {
           userName:token.userName
         }
       };
-    },
+    }
   },
 };
